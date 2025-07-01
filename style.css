@@ -4,7 +4,7 @@ html, body {
   font-family: 'Azeret Mono', monospace;
   background: #fff;
   color: #111;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; JS ho bude řídit */
   font-size: 19px;
 }
 
@@ -33,9 +33,22 @@ h1, h2, h3 {
   margin: 0 0 22px 0;
   font-weight: 700;
 }
-h1 { font-size: clamp(30px, 3.5vw, 48px); line-height: 1.2; }
-h2 { font-size: clamp(28px, 3vw, 42px); }
-h3 { font-size: 1.2em; }
+
+/* Globální nastavení H1 pro desktop (a jako základ) */
+h1 { 
+    font-size: clamp(30px, 3.5vw, 48px); 
+    line-height: 1.2; 
+    /* Použijeme flexbox pro zajištění dvou řádků */
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+/* Zabrání zalomení textu uvnitř každého spanu */
+h1 span {
+    white-space: nowrap; 
+}
+
 p { margin: 0 0 1.1em 0; }
 
 .section-inner {
@@ -47,7 +60,7 @@ p { margin: 0 0 1.1em 0; }
 }
 
 header + .section-inner {
-  padding-bottom: 0;
+  /* Odstraněn padding-bottom: 0, aby se spoléhalo na padding v .section-inner */
 }
 
 .section-divider {
@@ -124,11 +137,12 @@ nav ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 60vh;
+  /* min-height: 60vh; je nyní přepsáno v media query pro mobil */
   gap: 40px;
 }
 .uvod-left h1 {
-  white-space: pre-line;
+  /* Původní white-space: pre-line je odstraněno, protože <br> už nepoužíváme */
+  /* Nahrazeno flexboxem přímo na h1 a white-space: nowrap na spanech */
 }
 .uvod-right img {
   width: 320px;
@@ -286,13 +300,30 @@ footer {
   .uvod {
       justify-content: flex-start;
       text-align: left;
-      min-height: 40vh;
+      /* Menší minimální výška pro mobilní zařízení */
+      min-height: auto; /* Zrušíme pevnou min-height z desktopu */
+      padding-bottom: 30px; /* Nastavíme menší padding dole */
+      gap: 30px; /* Menší mezera pro flex items */
   }
   
+  /* Cílené úpravy pro nadpis H1 na malých obrazovkách */
   h1 {
-      font-size: clamp(20px, 7vw, 34px);
+      font-size: 28px; 
+      line-height: 1.25; 
   }
-  
+
+  /* Další zúžení pro extra malé displeje, např. iPhone 5/SE nebo iPhone 13 mini */
+  @media (max-width: 375px) {
+    h1 {
+        font-size: 26px; 
+    }
+  }
+
+  /* Sjednocený padding pro .section-inner na mobilu */
+  .section-inner {
+      padding: 30px 20px; /* Menší horní a dolní padding pro všechny sekce */
+  }
+
   .section-inner, .header-container {
       max-width: 95vw;
       padding-left: 0;
@@ -337,7 +368,7 @@ footer {
   .uvod, .lektor-flex {
       flex-direction: column;
       align-items: flex-start;
-      gap: 30px;
+      /* gap: 30px; je teď definováno přímo na .uvod */
   }
   
   .naucim-grid {

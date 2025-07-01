@@ -33,8 +33,11 @@
     <div class="section-inner">
         <section id="uvod" class="uvod">
             <div class="uvod-left">
-                <h1>Umím AI.<br>A Vás to naučím taky.</h1>
-            </div>
+    <h1>
+        <span>Umím AI.</span>
+        <span>A Vás to naučím taky.</span>
+    </h1>
+</div>
             <div class="uvod-right">
                 <img src="undraw_feeling-proud_tdos.svg" alt="AI počítač racky" />
             </div>
@@ -200,65 +203,71 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- Kód pro hamburger menu ---
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const navMenu = document.getElementById('main-nav');
-            const navLinks = navMenu.querySelectorAll('a');
-
-            function toggleMenu() {
-                hamburgerBtn.classList.toggle('is-active'); 
-                navMenu.classList.toggle('is-open');
-            }
-
-            hamburgerBtn.addEventListener('click', toggleMenu);
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('is-open')) {
-                        toggleMenu();
-                    }
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Plynulé scrollování pro navigační odkazy
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
-
-            // --- Kód pro akordeon v referencích ---
-            const referenceBlocks = document.querySelectorAll('.logo-block');
-
-            referenceBlocks.forEach(block => {
-                block.addEventListener('click', function(event) {
-                    if (window.innerWidth <= 1024) {
-                        if (this.classList.contains('is-open')) {
-                            this.classList.remove('is-open');
-                        } else {
-                            referenceBlocks.forEach(otherBlock => {
-                                otherBlock.classList.remove('is-open');
-                            });
-                            this.classList.add('is-open');
-                        }
-                    }
-                });
-            });
-
-            // --- Kód: Otevření akordeonu "Naučím Vás" na desktopu ---
-            const accordions = document.querySelectorAll('.accordion-item');
-
-            function handleAccordions() {
-                const isDesktop = window.innerWidth > 1024;
-                accordions.forEach(accordion => {
-                    if (isDesktop) {
-                        accordion.setAttribute('open', '');
-                    } else {
-                        accordion.removeAttribute('open');
-                    }
-                });
-            }
-
-            // Spustit při načtení stránky
-            handleAccordions();
-            // Spustit i při změně velikosti okna
-            window.addEventListener('resize', handleAccordions);
         });
-    </script>
+
+        // Oprava skákání akordeonu
+        document.querySelectorAll('.accordion-item summary').forEach(summary => {
+            summary.addEventListener('click', function(e) {
+                const details = this.closest('.accordion-item');
+                // Pokud se akordeon otevírá a je viditelný na obrazovce
+                if (!details.open && details.getBoundingClientRect().top < window.innerHeight / 2 && details.getBoundingClientRect().bottom > 0) {
+                    e.preventDefault(); // Zabrání výchozímu chování (okamžitému scrollování)
+                    const originalScrollPos = window.scrollY; // Uloží aktuální pozici scrollu
+
+                    // Otevře/zavře detail prvek
+                    if (details.open) {
+                        details.removeAttribute('open');
+                    } else {
+                        details.setAttribute('open', '');
+                    }
+                    
+                    // Po malé prodlevě (aby se vykreslily změny) vrátí pozici scrollu
+                    // a poté případně provede hladký scroll, pokud je to nutné
+                    setTimeout(() => {
+                        window.scrollTo(0, originalScrollPos); // Vrátí se na původní pozici
+                        // Pokud je element blízko horního okraje, scrollne ho nahoru plynule
+                        if (details.getBoundingClientRect().top < 100) { // Např. 100px od horního okraje
+                            details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 0); // Krátká prodleva pro vykreslení
+                }
+            });
+        });
+
+        // JavaScript pro reference logo bloky (pokud je ještě nemáte)
+        document.querySelectorAll('.logo-block').forEach(logoBlock => {
+            logoBlock.addEventListener('click', function() {
+                this.classList.toggle('is-open');
+            });
+        });
+        
+        // JavaScript pro hamburger menu
+        const hamburger = document.querySelector('.hamburger-icon');
+        const nav = document.querySelector('nav');
+        const navLinks = document.querySelectorAll('nav ul a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('is-active');
+            nav.classList.toggle('is-open');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('is-active');
+                nav.classList.remove('is-open');
+            });
+        });
+    });
+</script>
 </body>
 </html>
