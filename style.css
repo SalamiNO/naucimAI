@@ -470,20 +470,3 @@ footer {
         gap: 30px;
     }
 }
-
-.uvod-img-mobile {
-    display: none;
-}
-
-@media (max-width: 1024px) {
-    .uvod-img-mobile {
-        display: block;
-        margin: 30px auto 0 auto;
-        width: 60vw;           /* Omezí šířku obrázku, výška bude automatická */
-        max-width: 200px;      /* Na větších mobilech nebude nikdy větší */
-        height: auto;
-        object-fit: contain;
-    }
-}
-
-
