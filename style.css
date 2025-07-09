@@ -1,3 +1,4 @@
+/* ========== ZÁKLADNÍ STYLY ========== */
 html, body {
     margin: 0;
     padding: 0;
@@ -35,18 +36,17 @@ h1, h2, h3 {
 }
 
 /* Globální nastavení H1 pro desktop (a jako základ) */
-h1 { 
-    font-size: clamp(30px, 3.5vw, 48px); 
-    line-height: 1.2; 
+h1 {
+    font-size: clamp(30px, 3.5vw, 48px);
+    line-height: 1.2;
     /* Použijeme flexbox pro zajištění dvou řádků */
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
-
 /* Zabrání zalomení textu uvnitř každého spanu */
 h1 span {
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 p { margin: 0 0 1.1em 0; }
@@ -149,6 +149,7 @@ nav ul {
     height: auto;
     display: block;
 }
+
 .naucim > h2,
 .reference h2,
 .lektor > h2 {
@@ -206,7 +207,7 @@ nav ul {
     margin-top: 20px;
 }
 
-
+/* Reference, lektor, kontakt, footer */
 .reference-logos {
     display: flex;
     flex-direction: column;
@@ -229,6 +230,7 @@ nav ul {
     font-size: 1.1em;
     line-height: 1.5;
 }
+
 .lektor-flex {
     display: flex;
     align-items: flex-start;
@@ -246,12 +248,14 @@ nav ul {
     border-radius: 9px;
     box-shadow: 0 3px 14px #0002;
 }
+
 .kontakt h2 { font-size: clamp(28px, 3vw, 42px); }
 .kontakt div {
     margin-top: 20px;
     font-size: 1.2em;
 }
 .kontakt b { display: inline-block; margin-top: 8px; }
+
 footer {
     font-size: 1.01em;
     text-align: left;
@@ -265,12 +269,13 @@ footer {
     padding-bottom: 40px;
 }
 
-/* === MOBILNÍ VERZE === */
+/* ========== MOBILNÍ VERZE ========== */
 @media (max-width: 1024px) {
+
     .header-container {
         padding: 0 5vw;
     }
-    
+
     .hamburger-icon {
         display: block;
     }
@@ -315,32 +320,31 @@ footer {
     .logo {
         z-index: 2;
     }
-    
+
+    /* Původně skryto */
     .uvod-right {
         display: none;
     }
     .uvod {
         justify-content: flex-start;
         text-align: left;
-        min-height: auto; 
-        padding-bottom: 30px; 
-        gap: 30px; 
-    }
-    
-    /* Cílené úpravy pro nadpis H1 na malých obrazovkách */
-    h1 {
-        font-size: 28px; 
-        line-height: 1.25; 
+        min-height: auto;
+        padding-bottom: 30px;
+        gap: 30px;
     }
 
-    /* Další zúžení pro extra malé displeje, např. iPhone 5/SE nebo iPhone 13 mini */
+    /* Úpravy pro mobilní nadpis H1 */
+    h1 {
+        font-size: 28px;
+        line-height: 1.25;
+    }
+
     @media (max-width: 375px) {
         h1 {
-            font-size: 26px; 
+            font-size: 26px;
         }
     }
 
-    /* Sjednocený padding pro .section-inner na mobilu */
     .section-inner {
         padding: 30px 20px; /* Menší horní a dolní padding pro všechny sekce */
     }
@@ -351,23 +355,18 @@ footer {
         padding-right: 0;
     }
 
-    /* === MOBILNÍ STYLY PRO SEKCI NAUCIM === */
-    /* Skryje desktop layout na mobilu */
+    /* Sekce NAUCIM pro mobily */
     .naucim-desktop-layout {
-        display: none; /* Bude ovládaná JavaScriptem */
+        display: none;
     }
-
-    /* Zobrazí mobilní layout na mobilu */
     .naucim-mobile-layout {
-        display: block; /* Bude ovládaná JavaScriptem */
+        display: block;
     }
-
     .accordion-item {
         border: 1px solid #e0e0e0;
         border-radius: 9px;
         margin-bottom: 15px;
     }
-    
     .accordion-item summary {
         pointer-events: auto;
         cursor: pointer;
@@ -377,7 +376,6 @@ footer {
         align-items: center;
         justify-content: space-between;
     }
-    /* Ikona plus/mínus pro akordeon na mobilu */
     .accordion-item summary::after {
         content: '+';
         font-size: 1.8em;
@@ -390,37 +388,29 @@ footer {
         content: '−';
         transform: rotate(180deg);
     }
-
-
     .accordion-item summary h3 {
         margin: 0;
     }
-    .accordion-item .naucim-grid { 
+    .accordion-item .naucim-grid {
         padding: 0 20px 20px 20px;
         margin-top: 0;
-        flex-direction: column; /* Aby se sloupce zobrazovaly pod sebou */
-        gap: 20px; /* Menší mezera mezi položkami akordeonu */
+        flex-direction: column;
+        gap: 20px;
     }
-    
-    /* V mobilním layoutu chceme, aby každý div v gridu zabíral plnou šířku */
     .naucim-mobile-layout .naucim-grid > div {
         width: 100%;
-        min-width: unset; /* Zruší min-width z desktopu */
-        text-align: left; /* Zarovnání textu doleva */
+        min-width: unset;
+        text-align: left;
     }
-
-    /* Zobrazí záhlaví H3 uvnitř rozbaleného obsahu na mobilu */
     .naucim-mobile-layout .naucim-grid > div h3 {
-        display: block; /* Zajistí, že H3 jsou viditelné */
-        margin-bottom: 15px; /* Mezera pod H3 uvnitř gridu */
-        text-align: left; /* Zarovnáme nadpisy v obsahu doleva */
+        display: block;
+        margin-bottom: 15px;
+        text-align: left;
     }
-    /* === KONEC MOBILNÍCH STYLŮ PRO SEKCI NAUCIM === */
 
     .reference-logos {
         gap: 10px;
     }
-    
     .logo-block {
         flex-direction: column;
         align-items: center;
@@ -432,7 +422,6 @@ footer {
         position: relative;
         height: auto;
     }
-    
     .logo-block::after {
         content: '+';
         position: absolute;
@@ -441,16 +430,13 @@ footer {
         font-size: 1.8em;
         transition: transform 0.3s;
     }
-    
     .logo-block.is-open::after {
         content: '−';
         transform: rotate(180deg);
     }
-    
     .logo-block img {
         margin-bottom: 15px;
     }
-
     .logo-text {
         font-size: 1em;
         text-align: left;
@@ -459,7 +445,6 @@ footer {
         overflow: hidden;
         transition: max-height 0.4s ease-in-out;
     }
-
     .logo-block.is-open .logo-text {
         max-height: 500px;
     }
@@ -468,5 +453,22 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 30px;
+    }
+
+    /* --- NOVÝ BLOK: zobrazení obrázku pod nadpisem na mobilu --- */
+    .uvod {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .uvod-right {
+        display: block;
+        margin-top: 20px;
+    }
+    .uvod-right img {
+        width: 60vw;
+        max-width: 300px;
+        height: auto;
     }
 }
