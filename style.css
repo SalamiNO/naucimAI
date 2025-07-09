@@ -39,7 +39,6 @@ h1, h2, h3 {
 h1 {
     font-size: clamp(30px, 3.5vw, 48px);
     line-height: 1.2;
-    /* Použijeme flexbox pro zajištění dvou řádků */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -139,10 +138,6 @@ nav ul {
     justify-content: space-between;
     gap: 40px;
 }
-.uvod-left h1 {
-    /* Původní white-space: pre-line je odstraněno, protože <br> už nepoužíváme */
-    /* Nahrazeno flexboxem přímo na h1 a white-space: nowrap na spanech */
-}
 .uvod-right img {
     width: 320px;
     max-width: 40vw;
@@ -160,50 +155,46 @@ nav ul {
 
 /* === NOVÉ STYLY PRO SEKCI NAUCIM (DESKTOP) === */
 .naucim-desktop-layout {
-    display: flex; /* Zobrazí sloupce vedle sebe */
-    flex-wrap: wrap; /* Umožní zalamování sloupců, pokud je jich více */
-    gap: 60px; /* Mezera mezi sloupci */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 20px; /* Aby nebyl obsah nalepen na okraje */
-    margin-bottom: 60px; /* Mezera mezi Základy AI a Pokročilé AI na desktopu */
+    padding: 0 20px;
+    margin-bottom: 60px;
 }
-
 .naucim-desktop-layout:last-of-type {
-    margin-bottom: 0; /* Poslední desktop layout nemá spodní margin */
+    margin-bottom: 0;
 }
-
 .naucim-column {
-    flex: 1 1 0; /* Stejné chování jako původní .naucim-grid > div */
-    min-width: 210px; /* Minimální šířka pro flex item */
+    flex: 1 1 0;
+    min-width: 210px;
 }
-
 .naucim-desktop-layout h3 {
     font-size: 1.2em;
-    margin-bottom: 22px; /* Standardní margin pro nadpis H3 */
-    text-align: center; /* Nadpis H3 bude vycentrovaný */
+    margin-bottom: 22px;
+    text-align: center;
 }
-
 .naucim-desktop-layout .naucim-column > ul {
-    margin-top: 0; /* Zrušení marginu, pokud by tam byl */
+    margin-top: 0;
 }
 /* === KONEC NOVÝCH STYLŮ PRO SEKCI NAUCIM (DESKTOP) === */
 
 /* Skryje mobilní layout na desktopu */
 .naucim-mobile-layout {
-    display: none; /* Bude ovládaná JavaScriptem */
+    display: none;
 }
 
 .accordion-item {
-    margin-bottom: 30px; /* Používá se na mobilu */
+    margin-bottom: 30px;
 }
 .accordion-item summary {
-    list-style: none; /* Skryje defaultní trojúhelníček */
+    list-style: none;
 }
 .accordion-item summary::-webkit-details-marker {
-    display: none; /* Skryje defaultní trojúhelníček i pro WebKit */
+    display: none;
 }
-.accordion-item .naucim-grid { /* Toto se nyní používá POUZE v mobilním layoutu */
+.accordion-item .naucim-grid {
     margin-top: 20px;
 }
 
@@ -291,18 +282,15 @@ footer {
         max-height: 0;
         transition: max-height 0.4s ease-in-out;
     }
-
     nav.is-open {
         max-height: 500px;
     }
-
     nav ul {
         flex-direction: column;
         padding: 20px 0;
         align-items: center;
         gap: 0;
     }
-
     nav ul a {
         display: block;
         padding: 15px 0;
@@ -312,7 +300,6 @@ footer {
         text-align: center;
         border-bottom: 1px solid #333;
     }
-
     nav ul li:first-child a {
         border-top: 1px solid #333;
     }
@@ -331,28 +318,6 @@ footer {
         min-height: auto;
         padding-bottom: 30px;
         gap: 30px;
-    }
-
-    /* Úpravy pro mobilní nadpis H1 */
-    h1 {
-        font-size: 28px;
-        line-height: 1.25;
-    }
-
-    @media (max-width: 375px) {
-        h1 {
-            font-size: 26px;
-        }
-    }
-
-    .section-inner {
-        padding: 30px 20px; /* Menší horní a dolní padding pro všechny sekce */
-    }
-
-    .section-inner, .header-container {
-        max-width: 95vw;
-        padding-left: 0;
-        padding-right: 0;
     }
 
     /* Sekce NAUCIM pro mobily */
@@ -379,7 +344,6 @@ footer {
     .accordion-item summary::after {
         content: '+';
         font-size: 1.8em;
-        font-weight: normal;
         flex-shrink: 0;
         margin-left: 20px;
         transition: transform 0.3s;
@@ -387,9 +351,6 @@ footer {
     .accordion-item[open] > summary::after {
         content: '−';
         transform: rotate(180deg);
-    }
-    .accordion-item summary h3 {
-        margin: 0;
     }
     .accordion-item .naucim-grid {
         padding: 0 20px 20px 20px;
@@ -470,5 +431,13 @@ footer {
         width: 60vw;
         max-width: 300px;
         height: auto;
+    }
+}
+
+/* ========== DROBNÉ TELEFONNÍ DISPLEJE ========== */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 26px;
+        line-height: 1.25;
     }
 }
