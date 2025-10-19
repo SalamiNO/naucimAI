@@ -1,0 +1,622 @@
+/* ================================================
+   GLOBÁLNÍ NASTAVENÍ
+   ================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 400;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  transition: 0.2s ease-in-out;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 1.5;
+}
+
+/* ================================================
+   FONT STYLING
+   ================================================ */
+h1, h2, h3, h4, h5, h6,
+.contact-logo h1,
+.hero-text .hero-subtitle,
+body.gallery-page .gallery-title {
+  letter-spacing: 0.5px;
+}
+
+body, p, a, li, span, input, button, label, .button, .menu-right {
+  font-weight: 400;
+}
+
+.contact-box h2 {
+  font-weight: 600;
+}
+
+.contact-logo .ico {
+  font-weight: 400;
+}
+
+/* ================================================
+   HEADER
+   ================================================ */
+#header {
+  background: #fff;
+  border-bottom: 1px solid #000;
+  width: 100%;
+  flex-shrink: 0;
+  height: 80px;
+  z-index: 100;
+  position: relative;
+}
+
+#head_obal {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo_top {
+  height: 70px;
+  width: auto;
+}
+
+.menu-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.button {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #000;
+  line-height: 80px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-separator {
+  color: #000;
+  font-weight: 400;
+  font-size: 29px;
+}
+
+/* ================================================
+   HAMBURGER MENU (MOBIL)
+   ================================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 200;
+  position: relative;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-12px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 150;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+  z-index: 200;
+  transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu-header {
+  padding: 25px 20px;
+  border-bottom: 2px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.mobile-menu-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.mobile-menu-close {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #000;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-close:active {
+  transform: scale(0.9);
+}
+
+.mobile-menu-items {
+  padding: 40px 0;
+}
+
+.mobile-menu-items a {
+  display: block;
+  padding: 20px 30px;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-menu-items a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: #000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-items a:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu-items a:active::before {
+  transform: translateX(0);
+}
+
+/* ================================================
+   MAIN CONTENT
+   ================================================ */
+#outer {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ===== HERO TEXT ===== */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  text-align: center;
+  width: 90%;
+  max-width: 900px;
+}
+
+.hero-text .hero-subtitle {
+  font-size: 36px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* ===== IMAGE ===== */
+.inner-image {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-overlay .main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== ARROW ===== */
+.arrow-container {
+  position: absolute;
+  left: 26%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.arrow-container svg {
+  width: 80px;
+  height: 110px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-15px); }
+}
+
+/* ================================================
+   GALERIE PAGE
+   ================================================ */
+body.gallery-page #outer {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 60px 20px;
+  overflow-y: auto;
+}
+
+body.gallery-page #content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+}
+
+body.gallery-page .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+body.gallery-page .gallery-item {
+  width: 550px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease-in-out;
+  background: #fff;
+}
+
+body.gallery-page .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+body.gallery-page .gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+@media (max-width: 1200px) {
+  body.gallery-page .gallery-item {
+    width: 480px;
+  }
+}
+
+@media (max-width: 900px) {
+  body.gallery-page .gallery-item {
+    width: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.gallery-page #outer {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  body.gallery-page .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 25px;
+  }
+
+  body.gallery-page .gallery-item {
+    width: 90%;
+    max-width: 600px;
+  }
+}
+
+/* ================================================
+   KONTAKT PAGE - JEDEN BOX S VERTIKÁLNÍ ČAROU
+   ================================================ */
+
+body.kontakt-page #outer {
+  background: #f5f5f5;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.kontakt-page #content {
+  width: 100%;
+  max-width: 850px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  position: relative;
+  min-height: 380px;
+}
+
+/* Levá strana - Logo */
+.contact-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 40px;
+}
+
+.contact-logo h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.contact-logo .ico {
+  font-size: 15px;
+  color: #666;
+  font-weight: 300;
+}
+
+/* Vertikální oddělovač uprostřed */
+.contact-divider {
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+  align-self: stretch;
+  margin: 30px 0;
+}
+
+/* Pravá strana - Kontakty */
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 45px;
+  gap: 32px;
+}
+
+.contact-box {
+  text-align: left;
+}
+
+.contact-box h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #000;
+}
+
+.contact-box p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.contact-box a {
+  font-weight: 500;
+  transition: 0.2s;
+  color: #000;
+}
+
+.contact-box a:hover {
+  color: #444;
+  text-decoration: underline;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 1024px) {
+  .hero-text .hero-subtitle { font-size: 30px; }
+}
+
+@media (max-width: 900px) {
+  body.kontakt-page #content {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .contact-divider {
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    margin: 0 auto;
+    align-self: center;
+  }
+
+  .contact-wrapper {
+    padding: 50px 30px 30px 30px;
+  }
+
+  .contact-info {
+    padding: 30px 30px 50px 30px;
+    gap: 30px;
+  }
+
+  .contact-box {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hamburger menu zobrazit */
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu,
+  .mobile-menu-overlay {
+    display: block;
+  }
+
+  /* Desktop menu skrýt */
+  .menu-right {
+    display: none;
+  }
+
+  #head_obal {
+    padding: 0 20px;
+  }
+
+  #logo_top {
+    height: 55px;
+  }
+
+  .hero-text .hero-subtitle { 
+    font-size: 24px;
+  }
+
+  .arrow-container {
+    left: 50%;
+  }
+
+  .arrow-container svg {
+    width: 60px;
+    height: 80px;
+  }
+
+  .contact-logo h1 {
+    font-size: 32px;
+  }
+
+  .contact-box h2 {
+    font-size: 20px;
+  }
+
+  .contact-box p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  #logo_top {
+    height: 50px;
+  }
+
+  .hero-text .hero-subtitle { 
+    font-size: 20px;
+  }
+
+  .arrow-container svg { 
+    width: 50px; 
+    height: 70px; 
+  }
+  
+  body.kontakt-page #content {
+    margin: 0 10px;
+  }
+
+  .contact-wrapper,
+  .contact-info {
+    padding: 40px 25px;
+  }
+
+  .mobile-menu {
+    width: 260px;
+  }
+
+  .mobile-menu-items a {
+    font-size: 20px;
+    padding: 18px 25px;
+  }
+}
