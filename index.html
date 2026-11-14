@@ -1,360 +1,324 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>naučímAI.cz</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Školení AI pro firmy a úřady | Workshop AI v praxi | naučímAI.cz</title>
+  <meta name="description" content="Workshop AI v praxi pro firmy a úřady: ChatGPT, Copilot, Gemini a Claude v každodenní práci, bezpečně a s ohledem na AI Act. Certifikát pro každého účastníka. AI na míru: asistenti, automatizace, reporting.">
+  <link rel="canonical" href="https://naucimai.cz/">
+  <meta name="theme-color" content="#111111">
+
+  <!-- Sdílení na sociálních sítích -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:site_name" content="naučímAI.cz">
+  <meta property="og:url" content="https://naucimai.cz/">
+  <meta property="og:title" content="Umím AI. A vás to naučím taky. | naučímAI.cz">
+  <meta property="og:description" content="Workshop AI v praxi pro firmy a úřady a zavedení AI na míru. Online i osobně, s certifikátem.">
+  <meta property="og:image" content="https://naucimai.cz/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://naucimai.cz/#business",
+        "name": "naučímAI.cz",
+        "url": "https://naucimai.cz/",
+        "image": "https://naucimai.cz/img/og-image.jpg",
+        "description": "Praktická školení umělé inteligence pro firmy, úřady a týmy.",
+        "email": "info@naucimai.cz",
+        "telephone": "+420722459549",
+        "areaServed": "CZ",
+        "founder": { "@id": "https://naucimai.cz/#lektor" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://naucimai.cz/#lektor",
+        "name": "Adam Sobanski",
+        "jobTitle": "Data engineer a lektor AI",
+        "image": "https://naucimai.cz/img/adam-sobanski-480.jpg"
+      },
+      {
+        "@type": "Course",
+        "name": "AI v praxi – workshop pro týmy",
+        "description": "Čtyřhodinový workshop umělé inteligence pro firmy a úřady: texty a e-maily, dokumenty a porady, Excel a data, prezentace, bezpečnost, GDPR a AI Act, výběr nástrojů a licencí.",
+        "inLanguage": "cs",
+        "provider": { "@id": "https://naucimai.cz/#business" },
+        "offers": { "@type": "Offer", "price": "25000", "priceCurrency": "CZK", "category": "Paid" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": ["Online", "Onsite"], "courseWorkload": "PT4H" }
+      },
+      {
+        "@type": "Service",
+        "name": "AI na míru",
+        "serviceType": "Zavedení AI do firmy",
+        "description": "AI audit procesů, vlastní AI asistent nad firemními dokumenty, interní pravidla pro práci s AI, automatizace opakované práce a AI v reportingu (Power BI, Excel).",
+        "provider": { "@id": "https://naucimai.cz/#business" },
+        "areaServed": "CZ"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <span class="logo">naučímAI.cz</span>
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="#uvod">Úvod</a></li>
-                    <li><a href="#naucim">Naučím</a></li>
-                    <li><a href="#reference">Reference</a></li>
-                    <li><a href="#lektor">Lektor</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-                </ul>
-            </nav>
-            <button id="hamburger-btn" class="hamburger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+  <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a href="#" class="logo" aria-label="naučímAI.cz – úvod">naučím<span>AI</span>.cz</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Hlavní navigace">
+        <ul>
+          <li><a href="#nabidka">Nabídka</a></li>
+          <li><a href="#reference">Reference</a></li>
+          <li><a href="#lektor">O lektorovi</a></li>
+          <li><a href="#kontakt" class="btn btn-small">Domluvit školení</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="obsah">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Workshopy AI · AI na míru · Firmy a úřady</p>
+          <h1>
+            <span class="sr-only">AI zvládne vaše e-maily, reporty, zápisy z porad, tabulky i prezentace. Já vás naučím jak.</span>
+            <span aria-hidden="true">
+              <span class="h1-line">AI zvládne vaše</span>
+              <span class="h1-line rotator"><span class="rotator-word">e-maily</span><span class="caret"></span><span class="rotator-dot">.</span></span>
+              <span class="h1-line">Já vás naučím jak.</span>
+            </span>
+          </h1>
+          <p class="lead">Praktické workshopy a zavedení AI pro firmy a úřady. Na vašich dokumentech, tabulkách a procesech. <strong>Bezpečně a podle pravidel.</strong></p>
+          <div class="hero-cta">
+            <a href="mailto:info@naucimai.cz?subject=Poptávka%3A%20workshop%20AI" class="btn">Domluvit workshop</a>
+            <a href="#nabidka" class="btn btn-ghost">Co vás naučím ↓</a>
+          </div>
+          <p class="hero-phone">nebo zavolejte <a href="tel:+420722459549">+420 722 459 549</a></p>
+          <ul class="stats" aria-label="V číslech">
+            <li><strong>412+</strong><span>proškolených účastníků</span></li>
+            <li><strong>6 let</strong><span>s AI denně</span></li>
+            <li><strong>firmy i úřady</strong><span>ABB, Siemens, města</span></li>
+          </ul>
         </div>
-    </header>
+        <figure class="hero-photo">
+          <picture>
+            <source type="image/webp" srcset="img/adam-sobanski-480.webp 480w, img/adam-sobanski-640.webp 640w, img/adam-sobanski-960.webp 960w" sizes="(max-width: 860px) min(90vw, 420px), 440px">
+            <img src="img/adam-sobanski-480.jpg" srcset="img/adam-sobanski-480.jpg 480w, img/adam-sobanski-640.jpg 640w, img/adam-sobanski-960.jpg 960w" sizes="(max-width: 860px) min(90vw, 420px), 440px" width="480" height="390" alt="Adam Sobanski, data engineer a lektor AI" fetchpriority="high">
+          </picture>
+          <figcaption><strong>Adam Sobanski</strong><span>data engineer &amp; lektor AI</span></figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <div class="section-inner">
-        <section id="uvod" class="uvod">
-            <div class="uvod-left">
-                <h1>
-                    <span>Umím AI.</span>
-                    <span>A Vás to naučím taky.</span>
-                </h1>
+    <!-- LOGA -->
+    <section class="logos" aria-label="Kde jsem školil">
+      <div class="container">
+        <p class="logos-title">Školil jsem mimo jiné pro</p>
+        <ul class="logo-strip">
+          <li><img src="img/eduzone.webp" alt="Eduzone" width="160" height="60" loading="lazy"></li>
+          <li><img src="img/jesenik.webp" alt="Město Jeseník" width="160" height="60" loading="lazy"></li>
+          <li><img src="img/sluknov.webp" alt="Klub personalistů Šluknovského výběžku" width="160" height="60" loading="lazy"></li>
+          <li><img src="img/siemens.svg" alt="Siemens" width="160" height="60" loading="lazy"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- NABÍDKA -->
+    <section id="nabidka" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Nabídka</p>
+          <h2>Od prvního promptu k AI, která pracuje za vás</h2>
+          <p>Začněte workshopem pro celý tým. Když budete chtít jít dál, nastavíme AI přímo na vaše procesy.</p>
+        </header>
+
+        <div class="courses">
+          <article class="course course-green">
+            <p class="course-tag">Krok 1 · Workshop pro tým</p>
+            <h3>AI v praxi</h3>
+            <p class="course-intro">Za jedno odpoledne váš tým začne s AI šetřit čas. Bezpečně a podle pravidel.</p>
+            <h4>Co se naučíte</h4>
+            <ul class="checklist">
+              <li><strong>Texty a e-maily</strong> – psaní, shrnutí, překlady, odpovědi zákazníkům</li>
+              <li><strong>Dokumenty a porady</strong> – shrnutí dlouhých PDF, zápisy z porad, práce s vlastními podklady</li>
+              <li><strong>Excel a data</strong> – Copilot, vzorce, rozbor tabulek a grafy</li>
+              <li><strong>Prezentace a vizuály</strong> během pár minut</li>
+              <li><strong>Bezpečnost a pravidla</strong> – co do AI nedávat, GDPR, autorská práva, AI Act</li>
+              <li><strong>Které nástroje se vyplatí</strong> – ChatGPT, Copilot, Gemini, Claude a jejich licence</li>
+            </ul>
+            <h4>Jak to probíhá</h4>
+            <ul class="facts">
+              <li><strong>4 h</strong> workshop online / osobně</li>
+              <li>navazující konzultace <strong>dle domluvy</strong></li>
+            </ul>
+            <div class="course-foot">
+              <p class="price"><strong>25 000 Kč</strong><span>workshop pro váš tým</span></p>
+              <a href="mailto:info@naucimai.cz?subject=Poptávka%3A%20workshop%20AI%20v%20praxi" class="btn">Mám zájem</a>
             </div>
-            <div class="uvod-right">
-                <img src="undraw_feeling-proud_tdos.svg" alt="AI počítač racky" />
+          </article>
+
+          <article class="course course-blue">
+            <p class="course-tag">Krok 2 · Spolupráce</p>
+            <h3>AI na míru</h3>
+            <p class="course-intro">Pro firmy a úřady, které chtějí, aby AI pracovala za ně, ne jen s nimi.</p>
+            <h4>Co pro vás připravím</h4>
+            <ul class="checklist">
+              <li><strong>AI audit procesů</strong> – společně najdeme, kde vám AI ušetří nejvíc času, a sestavíme konkrétní plán</li>
+              <li><strong>Vlastní AI asistent</strong> nad vašimi dokumenty, směrnicemi a manuály</li>
+              <li><strong>Pravidla pro práci s AI</strong> – srozumitelná interní pravidla, co se smí a v jakých nástrojích</li>
+              <li><strong>Automatizace opakované práce</strong> – e-maily, tabulky a reporty bez ručního přepisování</li>
+              <li><strong>AI v reportingu a datech</strong> – Power BI a Excel s pomocí AI, moje hlavní obor</li>
+            </ul>
+            <h4>Jak to probíhá</h4>
+            <ul class="facts">
+              <li>úvodní schůzka a návrh řešení</li>
+              <li>rozsah <strong>dle domluvy</strong></li>
+            </ul>
+            <div class="course-foot">
+              <p class="price"><strong>Cena na míru</strong><span>podle rozsahu spolupráce</span></p>
+              <a href="mailto:info@naucimai.cz?subject=Poptávka%3A%20AI%20na%20míru" class="btn">Probrat zadání</a>
             </div>
-        </section>
+          </article>
+        </div>
+
+        <h3 class="included-title">Součástí workshopu</h3>
+        <ul class="included" aria-label="Součástí workshopu">
+          <li><span class="ic" aria-hidden="true">▶</span><div><strong>Záznam workshopu</strong>k dispozici hned po skončení</div></li>
+          <li><span class="ic" aria-hidden="true">≡</span><div><strong>Prezentace a materiály</strong>ke stažení pro všechny účastníky</div></li>
+          <li><span class="ic" aria-hidden="true">{ }</span><div><strong>Sada hotových příkazů</strong>připravená pro práci vašeho týmu</div></li>
+          <li><span class="ic" aria-hidden="true">✓</span><div><strong>Osobní certifikát</strong>pro každého účastníka</div></li>
+        </ul>
+
+        <aside class="callout">
+          <p class="eyebrow">AI Act</p>
+          <h3 class="callout-title">Vaši lidé už AI používají. Otázka je, jestli správně.</h3>
+          <p><strong>Od února 2025 musí firmy a úřady, které používají AI, zajistit dostatečnou AI gramotnost svých lidí</strong> (čl. 4 nařízení EU o umělé inteligenci). Workshop s certifikátem pro každého účastníka vám ji pomůže doložit.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- REFERENCE -->
+    <section id="reference" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Reference</p>
+          <h2>AI už díky mně používají</h2>
+        </header>
+        <div class="refs">
+          <article class="ref">
+            <img src="img/eduzone.webp" alt="Eduzone" width="160" height="60" loading="lazy">
+            <p>Od roku 2023 proškoleno <strong>přes 350 účastníků</strong> z různých organizací a firem.</p>
+          </article>
+          <article class="ref">
+            <img src="img/jesenik.webp" alt="Město Jeseník" width="160" height="60" loading="lazy">
+            <p>Dva semináře na míru (2024 a 2025): první pro radní včetně paní starostky, druhý pro <strong>22 zaměstnanců</strong> s důrazem na příklady z praxe. V roce 2026 pravidelné konzultace.</p>
+          </article>
+          <article class="ref">
+            <img src="img/sluknov.webp" alt="Klub personalistů Šluknovského výběžku" width="160" height="60" loading="lazy">
+            <p>V roce 2025 školení <strong>Základů AI</strong> pro Klub personalistů Šluknovska, doplněné o <strong>příklady z HR praxe</strong> na míru.</p>
+          </article>
+          <article class="ref">
+            <img src="img/siemens.svg" alt="Siemens" width="160" height="60" loading="lazy">
+            <p>Školení pro zaměstnance Siemens (2023) zaměřené na <strong>základy AI</strong> a generování <strong>DAX kódu</strong> pro Power BI.</p>
+          </article>
+          <article class="ref">
+            <img src="img/abb.svg" alt="ABB" width="160" height="60" loading="lazy">
+            <p>V ABB pravidelně sdílím znalosti o AI s kolegy. Díky tomu držím krok s <strong>nejnovějšími nástroji</strong>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEKTOR -->
+    <section id="lektor" class="section">
+      <div class="container lektor">
+        <header class="section-head section-head-left">
+          <p class="eyebrow">O lektorovi</p>
+          <h2>Adam Sobanski</h2>
+          <p class="role">Data engineer ve společnosti ABB</p>
+        </header>
+        <div class="lektor-text">
+          <p>AI k mé práci jednoduše patří. A nejspíš <strong>část mé práce jednou nahradí</strong> :-)</p>
+          <p>Než se tak stane, bude ještě dlouho platit, že lidé, kteří s AI umí pracovat, budou mít náskok. <strong>Kdo ji nevyužívá, je už dnes pozadu.</strong></p>
+          <p>AI používám denně <strong>od roku 2020</strong>. Za tu dobu jsem vyzkoušel, co funguje a co ne, takže vy to zkoušet nemusíte a <strong>ušetříte spoustu času</strong>. Vždy ukazuji to nejaktuálnější, co AI nabízí, včetně placených verzí.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="contact">
+      <div class="container contact-inner">
+        <div>
+          <h2>Domluvme školení pro váš tým</h2>
+          <p>Napište mi, kolik vás bude a s čím pracujete. Ozvu se vám s návrhem programu na míru.</p>
+        </div>
+        <ul class="contact-list">
+          <li><span>E-mail</span><a href="mailto:info@naucimai.cz">info@naucimai.cz</a></li>
+          <li><span>Telefon</span><a href="tel:+420722459549">+420 722 459 549</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span>&copy; 2026 Adam Sobanski</span>
+      <!-- TODO: doplnit IČO (povinný údaj podnikatele na webu, § 435 OZ) -->
+      <a href="#">Nahoru ↑</a>
     </div>
+  </footer>
 
-    <hr class="section-divider">
-
-    <div class="section-inner">
-        <section id="naucim" class="naucim">
-            <h2 class="center">Naučím Vás:</h2>
-
-            <div class="naucim-desktop-layout" id="desktop-zaklady-ai">
-                <div class="naucim-column">
-                    <h3 class="green">Základy AI</h3>
-                    <ul>
-                        <li><b>ChatGPT, Gemini, NotebookLM, Claude</b></li>
-                        <li>Jak psát příkazy</li>
-                        <li>Práce s texty</li>
-                        <li>Práce se soubory</li>
-                        <li>Vytváření prezentací <b>během 5 minut</b></li>
-                        <li>Generování obrázků a videí</li>
-                        <li>Copilot v <b>Excelu, Wordu</b> a další</li>
-                        <li>Srovnání placených verzí</li>
-                        <li><b>Manus, OCR, Canva</b></li>
-                        <li>Bezpečnost práce s AI</li>
-                        <li>Copyright obrázků</li>
-                    </ul>
-                </div>
-                <div class="naucim-column">
-                    <h3>Jak to probíhá</h3>
-                    <ul>
-                        <li><b>3 hodiny</b> online/offline školení</li>
-                        <li><b>2 hodiny</b> následné konzultace</li>
-                        <li>Prezentace, záznam a materiály<br>k dispozici ihned po školení</li>
-                        <li><b>Osobní certifikát</b></li>
-                    </ul>
-                </div>
-                <div class="naucim-column">
-                    <h3>Kolik to stojí</h3>
-                    <ul>
-                        <li><b>20 000 Kč</b> za <b>školení a konzultace online</b></li>
-                        <li>Více informací na <b>info@naucimai.cz</b></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="naucim-desktop-layout" id="desktop-pokrocile-ai">
-                <div class="naucim-column">
-                    <h3 class="blue">Pokročilé AI</h3>
-                    <ul>
-                        <li><b>Prolomení</b> AI bariér</li>
-                        <li>Pokročilé scénáře z praxe</li>
-                        <li>Vytvoření funkční aplikace pro kolegy</li>
-                        <li>Přidání <b>AI Chatbota</b> na Váš web</li>
-                        <li>AI Roboti a modely</li>
-                        <li><b>Příkazy</b> na míru Vašich potřeb</li>
-                        <li>Generování <b>podcastů</b></li>
-                        <li>Možnosti s <b>API</b></li>
-                        <li>Stanovení rolí a přizpůsobení</li>
-                    </ul>
-                </div>
-                <div class="naucim-column">
-                    <h3>Jak to probíhá</h3>
-                    <ul>
-                        <li><b>2 hodiny</b> online/offline školení</li>
-                        <li><b>2 hodiny</b> následné konzultace</li>
-                        <li>Prezentace, záznam a materiály<br>k dispozici ihned po školení</li>
-                        <li><b>Osobní certifikát</b></li>
-                    </ul>
-                </div>
-                <div class="naucim-column">
-                    <h3>Kolik to stojí</h3>
-                    <ul>
-                        <li><b>20 000 Kč</b> za <b>školení a konzultace online</b></li>
-                        <li>Více informací na <b>info@naucimai.cz</b></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="naucim-mobile-layout">
-                <details class="accordion-item">
-                    <summary>
-                        <h3 class="green">Základy AI</h3>
-                    </summary>
-                    <div class="naucim-grid"> 
-                        <div>
-                            <ul>
-                                <li><b>ChatGPT, Gemini, NotebookLM, Claude</b></li>
-                                <li>Jak psát příkazy</li>
-                                <li>Práce s texty</li>
-                                <li>Práce se soubory</li>
-                                <li>Vytváření prezentací <b>během 5 minut</b></li>
-                                <li>Generování obrázků a videí</li>
-                                <li>Copilot v <b>Excelu, Wordu</b> a další</li>
-                                <li>Srovnání placených verzí</li>
-                                <li><b>Manus, OCR, Canva</b></li>
-                                <li>Bezpečnost práce s AI</li>
-                                <li>Copyright obrázků</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Jak to probíhá</h3>
-                            <ul>
-                                <li><b>3 hodiny</b> online/offline školení</li>
-                                <li><b>2 hodiny</b> následné konzultace</li>
-                                <li>Prezentace, záznam a materiály<br>k dispozici ihned po školení</li>
-                                <li><b>Osobní certifikát</b></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Kolik to stojí</h3>
-                            <ul>
-                                <li><b>20 000 Kč</b> za <b>školení a konzultace online</b></li>
-                                <li>Více informací na <b>info@naucimai.cz</b></li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="accordion-item">
-                    <summary>
-                        <h3 class="blue">Pokročilé AI</h3>
-                    </summary>
-                    <div class="naucim-grid"> 
-                        <div>
-                            <ul>
-                                <li><b>Prolomení</b> AI bariér</li>
-                                <li>Pokročilé scénáře z praxe</li>
-                                <li>Vytvoření funkční aplikace pro kolegy</li>
-                                <li>Přidání <b>AI Chatbota</b> na Váš web</li>
-                                <li>AI Roboti a modely</li>
-                                <li><b>Příkazy</b> na míru Vašich potřeb</li>
-                                <li>Generování <b>podcastů</b></li>
-                                <li>Možnosti s <b>API</b></li>
-                                <li>Stanovení rolí a přizpůsobení</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Jak to probíhá</h3>
-                            <ul>
-                                <li><b>2 hodiny</b> online/offline školení</li>
-                                <li><b>2 hodiny</b> následné konzultace</li>
-                                <li>Prezentace, záznam a materiály<br>k dispozici ihned po školení</li>
-                                <li><b>Osobní certifikát</b></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Kolik to stojí</h3>
-                            <ul>
-                                <li><b>20 000 Kč</b> za <b>školení a konzultace online</b></li>
-                                <li>Více informací na <b>info@naucimai.cz</b></li>
-                            </ul>
-                        </div>
-                    </div>
-                </details>
-            </div>
-        </section>
-    </div>
-
-    <hr class="section-divider">
-
-    <div class="section-inner">
-        <section id="reference" class="reference">
-            <h2 class="center">AI již umí a používá:</h2>
-            <div class="reference-logos">
-                <div class="logo-block">
-                    <img src="eduzone.jpg" alt="Eduzone logo" />
-                    <div class="logo-text">Od roku 2023 proškoleno <b>přes 350 účastníků</b> z různých organizací a firem.</div>
-                </div>
-                <div class="logo-block">
-                    <img src="Logo_města_jesenik(PNG).png" alt="Jeseník logo" />
-                    <div class="logo-text">Pravidelné konzultace v roce <b>2026</b> a dva individuální semináře v letech <b>2024 a 2025</b>. První pro menší skupinu radních včetně paní starostky. Druhý pro <b>22 lidí</b> zaměřený hlavně na příklady z praxe na míru potřebám účastníků.</div>
-                </div>
-                <div class="logo-block">
-                    <img src="sluknov.png" alt="Klub personalistů logo" />
-                    <div class="logo-text">V roce 2025 proběhlo školení <b>Základů AI</b> také pro Klub Personalistů Šluknova. Kromě základů jsme probrali také <b>příklady z praxe na míru</b> tak, aby personalisté vytěžili z AI maximum.</div>
-                </div>
-                <div class="logo-block">
-                    <img src="ABB New.svg" alt="ABB logo" />
-                    <div class="logo-text">Pravidelný knowledge sharing a vzdělávání s kolegy je samozřejmostí.<br>I díky tomu stále udržuji tempo s <b>posledními novinkami v AI.</b></div>
-                </div>
-                <div class="logo-block">
-                    <img src="Siemens_AG_logo.svg" alt="Siemens logo" />
-                    <div class="logo-text">Jednorázové školení pro pracovníky SIEMENS v roce 2023. Zaměřeno především na <b>základy</b> a možnosti využití AI pro <b>generování DAX kódu.</b></div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <hr class="section-divider">
-
-    <div class="section-inner">
-        <section id="lektor" class="lektor">
-            <h2 class="center">O lektorovi:</h2>
-            <div class="lektor-flex">
-                <div class="lektor-info">
-                    <p>Jmenuji se <b>Adam Sobanski</b> a jsem datovým analytikem ve společnosti <span class="red">ABB</span>.<br>
-                    K mé práci AI jednoduše patří a nejspíše <b>část mé práce v budoucnu nahradí</b> :-).</p>
-                    <p>Ale než se tak stane, uplyne nějaká doba a lidé budou k práci AI potřebovat. <b>Kdo ji nevyužívá, je už dnes pozadu.</b></p>
-                    <p>K tomu, abyste nebyli pozadu a mohli do světa AI vkročit bez zmatků, jsem tu já. S AI mám přímou <b>zkušenost od roku 2020</b>, kdy jsem začal tuto technologii využívat denně.</p>
-                    <p>Za tu dobu jsem nasbíral dost zkušeností, které předávám dál. Vy tak <b>ušetříte spoustu času</b> namísto testování toho, co funguje a co ne. Samozřejmě jdu s dobou a ukážu vždy to <b>nejaktuálnější co AI nabízí i v placených verzích.</b></p>
-                </div>
-                <div class="lektor-img">
-                    <img src="50FD9CF5-0F8E-4EB2-8BB1-5A9D5DF5AD43.PNG" alt="Avatar Adam Sobanski" />
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <hr class="section-divider">
-
-    <div class="section-inner">
-        <section id="kontakt" class="kontakt">
-            <h2>Kontakt:</h2>
-            <div>
-                <p><b>Telefon</b><br>
-                +420 722 459 549</p>
-                <p><b>E-mail</b><br>
-                info@naucimai.cz</p>
-            </div>
-        </section>
-    </div>
-
-    <hr class="section-divider">
-
-    <div class="section-inner footer-container">
-        <footer>
-            <span>&copy; 2026 Adam Sobanski</span>
-        </footer>
-    </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Plynulé scrollování pro navigační odkazy
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Oprava skákání akordeonu - APLIKOVÁNO POUZE NA MOBILU
-        document.querySelectorAll('.accordion-item summary').forEach(summary => {
-            summary.addEventListener('click', function(e) {
-                const details = this.closest('.accordion-item');
-                // Ponecháme chování pro akordeon jen na menších obrazovkách
-                if (window.innerWidth <= 1024) { // Prahová hodnota pro mobil
-                    // Pokud se akordeon otevírá a je viditelný na obrazovce
-                    if (!details.open && details.getBoundingClientRect().top < window.innerHeight / 2 && details.getBoundingClientRect().bottom > 0) {
-                        e.preventDefault(); // Zabrání výchozímu chování (okamžitému scrollování)
-                        const originalScrollPos = window.scrollY; // Uloží aktuální pozici scrollu
-
-                        // Otevře/zavře detail prvek
-                        if (details.open) {
-                            details.removeAttribute('open');
-                        } else {
-                            details.setAttribute('open', '');
-                        }
-                        
-                        // Po malé prodlevě (aby se vykreslily změny) vrátí pozici scrollu
-                        setTimeout(() => {
-                            window.scrollTo(0, originalScrollPos); // Vrátí se na původní pozici
-                            // Pokud je element blízko horního okraje, scrollne ho nahoru plynule
-                            if (details.getBoundingClientRect().top < 100) { // Např. 100px od horního okraje
-                                details.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }
-                        }, 0); // Krátká prodleva pro vykreslení
-                    }
-                }
-            });
-        });
-
-        // JavaScript pro reference logo bloky
-        document.querySelectorAll('.logo-block').forEach(logoBlock => {
-            logoBlock.addEventListener('click', function() {
-                this.classList.toggle('is-open');
-            });
-        });
-        
-        // JavaScript pro hamburger menu
-        const hamburger = document.querySelector('.hamburger-icon');
-        const nav = document.querySelector('nav');
-        const navLinks = document.querySelectorAll('nav ul a');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('is-active');
-            nav.classList.toggle('is-open');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('is-active');
-                nav.classList.remove('is-open');
-            });
-        });
-
-        // Ovládání zobrazení akordeonů na desktopu vs. mobilu
-        // Na desktopu se otevřou, na mobilu se zavřou a fungují jako akordeony
-        function handleNaucimDisplay() {
-            if (window.innerWidth > 1024) { // Prahová hodnota pro desktop
-                document.getElementById('desktop-zaklady-ai').style.display = 'flex';
-                document.getElementById('desktop-pokrocile-ai').style.display = 'flex';
-                document.querySelector('.naucim-mobile-layout').style.display = 'none';
-            } else {
-                document.getElementById('desktop-zaklady-ai').style.display = 'none';
-                document.getElementById('desktop-pokrocile-ai').style.display = 'none';
-                document.querySelector('.naucim-mobile-layout').style.display = 'block';
-            }
+  <script>
+    // Měnící se slovo v nadpisu
+    (function () {
+      const el = document.querySelector('.rotator-word');
+      if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const words = ['e-maily', 'reporty', 'zápisy z porad', 'tabulky', 'prezentace'];
+      let i = 0;
+      const wait = ms => new Promise(r => setTimeout(r, ms));
+      async function loop() {
+        while (true) {
+          await wait(2200);
+          const current = words[i];
+          for (let n = current.length; n >= 0; n--) { el.textContent = current.slice(0, n); await wait(45); }
+          i = (i + 1) % words.length;
+          const next = words[i];
+          await wait(250);
+          for (let n = 1; n <= next.length; n++) { el.textContent = next.slice(0, n); await wait(85); }
         }
+      }
+      loop();
+    })();
 
-        // Spustit při načtení a při změně velikosti okna
-        handleNaucimDisplay();
-        window.addEventListener('resize', handleNaucimDisplay);
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      toggle.setAttribute('aria-label', open ? 'Otevřít menu' : 'Zavřít menu');
+      nav.classList.toggle('is-open', !open);
     });
-</script>
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Otevřít menu');
+      nav.classList.remove('is-open');
+    }));
+  </script>
 </body>
 </html>
