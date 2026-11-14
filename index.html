@@ -21,9 +21,9 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/azeret-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/azeret-mono-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 
   <script type="application/ld+json">
@@ -278,8 +278,7 @@
 
   <footer class="site-footer">
     <div class="container footer-row">
-      <span>&copy; 2026 Adam Sobanski</span>
-      <!-- TODO: doplnit IČO (povinný údaj podnikatele na webu, § 435 OZ) -->
+      <span>&copy; 2026 Adam Sobanski · <span class="nowrap">IČO 04932471</span></span>
       <a href="#">Nahoru ↑</a>
     </div>
   </footer>
